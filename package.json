@@ -3,25 +3,44 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "jest-expo": "~27.0.0",
-    "react-native-scripts": "^1.14.0",
-    "react-test-renderer": "16.3.1"
+    "@types/chai": "4.1.4",
+    "@types/chai-as-promised": "0.0.30",
+    "@types/node": "^10.5.2",
+    "@types/webdriverio": "^4.10.3",
+    "appium": "1.8.1",
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "chai": "4.1.2",
+    "chai-as-promised": "^6.0.0",
+    "cucumber": "4.2.1",
+    "jest": "^23.6.0",
+    "jest-react-native": "^18.0.0",
+    "protractor": "^5.4.1",
+    "protractor-cucumber-framework": "^3.1.2",
+    "react-test-renderer": "16.3.1",
+    "ts-node": "^7.0.0",
+    "typescript": "^2.5.2",
+    "wd": "1.10.1",
+    "wdio-appium-service": "0.2.3",
+    "wdio-browserstack-service": "^0.1.16",
+    "wdio-cucumber-framework": "2.2.0",
+    "wdio-spec-reporter": "0.1.4",
+    "webdriverio": "^4.13.1"
   },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
-    "test": "jest"
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "test:e2e": "TS_NODE_PROJECT=./e2e/tsconfig.e2e.json ./node_modules/.bin/wdio ./e2e/local.conf.js",
+    "test:e2e:android": "ANDROID=true npm run test:e2e",
+    "test:e2e:ios": "IOS=true npm run test:e2e",
+    "android:release": "cd android && ./gradlew assembleRelease"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "react-native"
   },
   "dependencies": {
-    "expo": "^27.0.1",
     "react": "16.3.1",
     "react-native": "~0.55.2",
-    "react-native-text-field": "^1.1.4"
+    "react-native-material-textfield": "^0.12.0"
   }
 }

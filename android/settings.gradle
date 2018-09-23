@@ -1,0 +1,3 @@
+rootProject.name = 'AppiumDemo'
+
+include ':app'
