@@ -18,6 +18,7 @@ Given(/^Click element: "([^"]*)?"$/, elId => {
   browser.click('~' + elId)
 })
 Given(/^Click element with text: "([^"]*)?"$/, text => {
+  // ios not supported
   browser.click(`//*[@text='${text}']`)
 })
 Given(/^Wait for element: "([^"]*)?"$/, (elId) => {
@@ -25,8 +26,8 @@ Given(/^Wait for element: "([^"]*)?"$/, (elId) => {
   waitFor(el)
 })
 Given(/^Wait for element with text: "([^"]*)?"$/, (text) => {
-  const query = process.env.ANDROID ? `//*[@text='${text}']` : `//UIAStaticText[contains(@name,"${text}")]`
-  waitFor(query)
+  // ios not supported
+  waitFor(`//*[@text='${text}']` )
 })
 Given(/^Element: "([^"]*)?" should have text: "([^"]*)?"$/, (elId, text) => {
   const elementText = browser.getText('~' + elId)
