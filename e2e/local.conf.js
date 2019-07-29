@@ -37,9 +37,9 @@ const capabilities = {
 }
 const getCapability = () => {
   if (process.env.ANDROID) {
-    return capabilities.android
+    return [capabilities.android]
   } else if (process.env.IOS) {
-    return capabilities.ios
+    return [capabilities.ios]
   }
   return [capabilities.ios, capabilities.android]
 }
